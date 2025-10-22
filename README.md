@@ -1,9 +1,5 @@
 # Blockchain Prototype System
 
-Sistem pencatatan ijazah digital berbasis blockchain.
-
-# Prototype System
-
 This is a prototype digital degree (diploma) registry implemented as a simple blockchain. It demonstrates the flow of issuing, storing, and verifying degrees using a lightweight proof-of-work blockchain and a command line interface.
 
 ## Features
