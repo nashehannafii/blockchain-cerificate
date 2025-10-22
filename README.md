@@ -17,3 +17,7 @@ Sistem pencatatan ijazah digital berbasis blockchain.
 2. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
+```
+
+3. **Fitur:**
+./run -h
