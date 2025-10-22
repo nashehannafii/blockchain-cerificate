@@ -9,57 +9,59 @@ Sistem pencatatan ijazah digital berbasis blockchain.
 - 📱 Verifikasi ijazah dengan QR Code
 - 🔍 Validasi integritas blockchain
 - 💻 Command Line Interface (CLI) dengan subcommands
-# Prototype Sistem
+# Prototype System
 
-Sistem pencatatan ijazah digital berbasis blockchain (prototype). Tujuan: menampilkan alur penerbitan, penyimpanan, dan verifikasi ijazah menggunakan struktur blockchain sederhana dengan proof-of-work.
+This is a prototype digital degree (diploma) registry implemented as a simple blockchain. It demonstrates the flow of issuing, storing, and verifying degrees using a lightweight proof-of-work blockchain and a command line interface.
 
-## Fitur
+## Features
 
-- Pencatatan dan penyimpanan ijazah sebagai transaksi pada blockchain.
-- Mining (proof-of-work) untuk mengonfirmasi transaksi dan menambah blok.
-- Verifikasi ijazah berdasarkan NIM + document hash.
-- Generasi QR code untuk verifikasi (opsional, memerlukan `qrcode`/`Pillow`).
-- CLI untuk operasi: menambah transaksi (single/bulk), menambang, verifikasi, dan menampilkan blockchain.
+- Record and store issued degrees as transactions on the blockchain.
+- Simple mining (proof-of-work) to confirm transactions and add new blocks.
+- Verify a degree using student ID (NIM) and a document hash.
+- Optional QR code generation for verification (requires `qrcode` and `Pillow`).
+- Command Line Interface (CLI) for adding degrees (single or bulk), mining, verification, and viewing the chain.
 
-## Cara Instalasi
+## Installation
 
-1. Clone repository:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/nashehannafii/blockchain-cerificate.git
 cd blockchain-cerificate
 ```
 
-2. Install dependencies:
+2. Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Pastikan file `run` executable (opsional):
+3. (Optional) Make the run wrapper executable:
 
 ```bash
 chmod +x run
 ```
 
-## Cara Penggunaan Fitur
+## How to Use
 
-Gunakan `./run <command>` (atau `python3 run.py <command>`). Ringkasan perintah utama:
+Use the wrapper `./run` or call the script directly with `python3 run.py`.
 
-- `./run` — Jalankan demo singkat (tanpa argumen).
-- `./run add-degree --nim <NIM> --name <NAME> --degree <DEGREE> --major <MAJOR> --gpa <GPA> --grad-date <YYYY-MM-DD>` — Tambah satu transaksi ijazah (pending).
-- `./run add-bulk --file <PATH>` — Tambah banyak transaksi dari file JSON (array objek mahasiswa).
-- `./run mine` — Menambang semua transaksi pending menjadi blok baru.
-- `./run verify --nim <NIM> --hash <DOCUMENT_HASH>` — Verifikasi ijazah.
-- `./run student-info --nim <NIM>` — Tampilkan ijazah untuk NIM.
-- `./run info` — Tampilkan ringkasan blockchain.
-- `./run validate` — Validasi integritas blockchain.
-- `./run display [--detailed]` — Tampilkan isi blockchain (opsional: `--detailed`).
-- `./run generate-qr --nim <NIM>` — Generate QR verifikasi untuk NIM.
+Common commands:
 
-Catatan:
+- `./run` — Run a short demo (no arguments).
+- `./run add-degree --nim <NIM> --name <NAME> --degree <DEGREE> --major <MAJOR> --gpa <GPA> --grad-date <YYYY-MM-DD>` — Add a single degree transaction (pending).
+- `./run add-bulk --file <PATH>` — Add multiple degree transactions from a JSON file (array of student objects).
+- `./run mine` — Mine pending transactions into a new block.
+- `./run verify --nim <NIM> --hash <DOCUMENT_HASH>` — Verify a degree record.
+- `./run student-info --nim <NIM>` — Show all degrees recorded for a student.
+- `./run info` — Show blockchain summary (blocks, transactions, pending, difficulty).
+- `./run validate` — Validate blockchain integrity (hashes and proof-of-work).
+- `./run display [--detailed]` — Display the blockchain (use `--detailed` for per-transaction detail).
+- `./run generate-qr --nim <NIM>` — Generate a verification QR code for a student's latest degree.
 
-- Data disimpan di `data/blockchain_data.pkl` (pickle) dan mencakup chain serta pending transactions.
-- Pastikan dependencies seperti `tabulate`, `qrcode`, dan `Pillow` terpasang jika ingin fitur terkait.
-- Untuk bantuan tiap perintah gunakan: `./run <command> --help`.
+Notes:
+
+- Data is persisted to `data/blockchain_data.pkl` using Python `pickle` and contains both the chain and the pending transactions. This allows separate CLI runs to see the same pending transactions.
+- Optional packages for enhanced features: `tabulate`, `qrcode`, `Pillow`.
+- For help on a specific command run: `./run <command> --help`.
 
