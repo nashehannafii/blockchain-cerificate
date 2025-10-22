@@ -1,6 +1,6 @@
 simple blockchain for certificate recording
 
-blockcert
+blockchain-certificate
 │
 ├── blockchain/
 │   ├── __init__.py

@@ -1,1 +1,0 @@
-python3 run.py add-degree --nim "20210010" --name "Ani" --degree "Sarjana Komputer" --major "Teknik Informatika" --gpa "3.75" --grad-date "2024-06-15"
