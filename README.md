@@ -26,6 +26,12 @@ pip install -r requirements.txt
 ./run
 ```
 
+- Untuk bantuan lengkap:
+```bash
+./run -help
+# contoh: ./run -help
+```
+
 - Untuk daftar subcommands dan opsi tiap perintah:
 ```bash
 ./run <command> --help
