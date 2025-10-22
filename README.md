@@ -54,3 +54,42 @@ Notes:
 - Optional packages for enhanced features: `tabulate`, `qrcode`, `Pillow`.
 - For help on a specific command run: `./run <command> --help`.
 
+## Project layout (directory tree)
+
+```
+blockcert/
+├── app/
+│   ├── __init__.py
+│   ├── core.py            # blockchain core implementation
+│   ├── models.py         # dataclasses for Block/Transaction
+│   └── utils.py          # helpers (hash, QR generation, validation)
+├── blockchain/
+│   ├── __init__.py
+│   ├── cli.py            # CLI wrapper
+│   └── main.py           # demo entrypoint
+├── data/                 # persisted blockchain and pending tx (pickle)
+├── run                   # executable wrapper (./run)
+├── run.py                # main runner
+├── Makefile              # helper targets
+└── README.md
+```
+
+## Sample output — `./run display`
+
+Below is a sample of the `./run display` output (table view):
+
+```
+✅ Blockchain loaded: 3 blocks
+📚 MENAMPILKAN BLOCKCHAIN
++---------+------------------+------------+-------------+---------------------+---------------------+
+|   Block | Timestamp        |   Total TX |   Degree TX | Hash                | Previous Hash       |
++=========+==================+============+=============+=====================+=====================+
+|       0 | 2025-10-23 04:35 |          1 |           0 | cea3cef99d642a53... | 0000000000000000... |
++---------+------------------+------------+-------------+---------------------+---------------------+
+|       1 | 2025-10-23 04:46 |          2 |           2 | 000e11f48709c07e... | cea3cef99d642a53... |
++---------+------------------+------------+-------------+---------------------+---------------------+
+|       2 | 2025-10-23 04:47 |          2 |           2 | 000134af701b0842... | 000e11f48709c07e... |
++---------+------------------+------------+-------------+---------------------+---------------------+
+```
+
+
