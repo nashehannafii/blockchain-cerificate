@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+# Lightweight wrapper to run the project's main script
+# Usage: ./run [args...]  -> forwards to: python3 run.py [args...]
+
+DIR=$(cd "$(dirname "$0")" && pwd)
+python3 "$DIR/run.py" "$@"

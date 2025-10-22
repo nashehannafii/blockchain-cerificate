@@ -1,0 +1,19 @@
+# University Blockchain System
+
+Sistem pencatatan ijazah digital berbasis blockchain untuk universitas.
+
+## Fitur
+
+- ✅ Pencatatan ijazah digital yang aman
+- 🔗 Blockchain dengan Proof-of-Work
+- 📱 Verifikasi ijazah dengan QR Code
+- 🔍 Validasi integritas blockchain
+- 💻 Command Line Interface
+
+## Instalasi
+
+1. **Clone atau download project ini**
+
+2. **Install dependencies:**
+```bash
+pip install -r requirements.txt

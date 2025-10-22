@@ -1,0 +1,21 @@
+simple blockchain for certificate recording
+
+blockcert
+│
+├── blockchain/
+│   ├── __init__.py
+│   ├── core.py
+│   ├── models.py
+│   └── utils.py
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   └── cli.py
+│
+├── data/
+│   └── blockchain_data.pkl
+│
+├── requirements.txt
+├── run.py
+└── README.md
