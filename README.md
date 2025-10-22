@@ -38,16 +38,6 @@ pip install -r requirements.txt
 # contoh: ./run add-degree --help
 ```
 
-## Makefile
-
-Beberapa target berguna yang disediakan di `Makefile`:
-
-- `make run` — cetak petunjuk singkat
-- `make mine` — jalankan mining (sama dengan `./run mine`)
-- `make display` — tampilkan blockchain
-- `make validate` — validasi integritas
-- `make add-degree` — helper untuk menambahkan ijazah via variabel (lihat Makefile)
-
 ## Fitur impor massal (bulk JSON)
 
 Tambahkan banyak transaksi dari file JSON yang berisi array objek mahasiswa.
@@ -75,3 +65,43 @@ Setelah itu jalankan:
 
 - Blockchain dan `pending_transactions` disimpan di `data/blockchain_data.pkl` menggunakan pickle. File ini menyimpan chain dan transaksi pending sehingga CLI yang dijalankan di proses berbeda akan melihat transaksi yang sama.
 - Jika file pickle rusak/korup, aplikasi akan membuat genesis block baru (pesan error akan ditampilkan).
+
+## Daftar Perintah (Command List)
+
+Berikut daftar lengkap command / subcommand yang tersedia di prototipe ini beserta contoh penggunaan singkat:
+
+- `./run` — Menjalankan demo singkat (tanpa argumen).
+
+- `./run add-degree --nim <NIM> --name <NAME> --degree <DEGREE> --major <MAJOR> --gpa <GPA> --grad-date <YYYY-MM-DD>`
+	- Tambah 1 transaksi ijazah ke pending.
+
+- `./run add-bulk --file <PATH>`
+	- Tambah banyak transaksi dari file JSON berisi array objek mahasiswa.
+
+- `./run mine` — Menambang (mine) semua transaksi pending ke blok baru.
+
+- `./run verify --nim <NIM> --hash <DOCUMENT_HASH>` — Verifikasi ijazah.
+
+- `./run student-info --nim <NIM>` — Tampilkan semua ijazah untuk NIM.
+
+- `./run info` — Tampilkan ringkasan blockchain (jumlah blok, transaksi, pending, difficulty).
+
+- `./run validate` — Validasi integritas blockchain (cek hash dan proof-of-work).
+
+- `./run display [--detailed]` — Tampilkan isi blockchain (opsional: `--detailed` untuk detail tiap transaksi).
+
+- `./run generate-qr --nim <NIM>` — Generate QR verification image untuk NIM (menggunakan transaksi terakhir untuk NIM tersebut).
+
+Makefile helper (di root):
+
+- `make run` — Cetak petunjuk singkat.
+- `make mine` — Shortcut untuk `./run mine`.
+- `make display` — Shortcut untuk `./run display`.
+- `make validate` — Shortcut untuk `./run validate`.
+- `make add-degree NIM=... NAME='...' DEGREE='...' MAJOR='...' GPA='...' GRAD_DATE='...'` — Helper untuk menambahkan satu transaksi menggunakan variabel lingkungan.
+
+Catatan:
+
+- Pastikan dependencies sudah diinstall (`pip install -r requirements.txt`) untuk fitur optional seperti `tabulate` dan `qrcode`.
+- Validasi input: `nim` harus numeric, `gpa` harus antara 0.0—4.0.
+- Bulk import akan melaporkan error per-record jika ada yang invalid dan melanjutkan untuk record lain.
