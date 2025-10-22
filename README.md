@@ -2,24 +2,17 @@
 
 Sistem pencatatan ijazah digital berbasis blockchain.
 
-## Fitur
-
-- ✅ Pencatatan ijazah digital yang aman
-- 🔗 Blockchain dengan Proof-of-Work
-- 📱 Verifikasi ijazah dengan QR Code
-- 🔍 Validasi integritas blockchain
-- 💻 Command Line Interface (CLI) dengan subcommands
 # Prototype System
 
 This is a prototype digital degree (diploma) registry implemented as a simple blockchain. It demonstrates the flow of issuing, storing, and verifying degrees using a lightweight proof-of-work blockchain and a command line interface.
 
 ## Features
 
-- Record and store issued degrees as transactions on the blockchain.
-- Simple mining (proof-of-work) to confirm transactions and add new blocks.
-- Verify a degree using student ID (NIM) and a document hash.
-- Optional QR code generation for verification (requires `qrcode` and `Pillow`).
-- Command Line Interface (CLI) for adding degrees (single or bulk), mining, verification, and viewing the chain.
+- ✅ Record and store issued degrees as transactions on the blockchain.
+- 🔗 Simple mining (proof-of-work) to confirm transactions and add new blocks.
+- 📱 Verify a degree using student ID (NIM) and a document hash.
+- 🔍 Optional QR code generation for verification (requires `qrcode` and `Pillow`).
+- 💻 Command Line Interface (CLI) for adding degrees (single or bulk), mining, verification, and viewing the chain.
 
 ## Installation
 
